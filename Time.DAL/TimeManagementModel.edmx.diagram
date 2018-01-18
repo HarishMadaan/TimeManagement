@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="62e937cca0dd4fa28a5532826b42e1db" Name="Diagram1" ZoomLevel="87">
+        <EntityTypeShape EntityType="TimeManagementModel.tblApplicationUser" Width="1.5" PointX="4.25" PointY="9.875" />
+        <EntityTypeShape EntityType="TimeManagementModel.tblMember" Width="1.5" PointX="2.5" PointY="9.875" />
+        <EntityTypeShape EntityType="TimeManagementModel.tblMemberSkillAssociation" Width="1.5" PointX="8" PointY="9.75" />
+        <EntityTypeShape EntityType="TimeManagementModel.tblProject" Width="1.5" PointX="0.625" PointY="12" />
+        <EntityTypeShape EntityType="TimeManagementModel.tblProjectMemberAssociation" Width="1.5" PointX="8" PointY="12.125" />
+        <EntityTypeShape EntityType="TimeManagementModel.tblProjectMemberTimeAssociation" Width="1.5" PointX="6.125" PointY="12.125" />
+        <EntityTypeShape EntityType="TimeManagementModel.tblProjectSprint" Width="1.5" PointX="11.625" PointY="9.75" />
+        <EntityTypeShape EntityType="TimeManagementModel.tblSkill" Width="1.5" PointX="6.125" PointY="9.75" />
+        <EntityTypeShape EntityType="TimeManagementModel.tblSprintMemberAssociation" Width="1.5" PointX="9.75" PointY="9.75" />
+        <EntityTypeShape EntityType="TimeManagementModel.tblUserTypeMaster" Width="1.5" PointX="0.625" PointY="9.875" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblApplicationUser_tblMember" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblApplicationUser_tblUserTypeMaster" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblMember_tblUserTypeMaster" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblMemberSkillAssociation_tblMember" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblProjectMemberAssociation_tblMember" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblProjectMemberTimeAssociation_tblMember" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblSprintMemberAssociation_tblMember" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblMemberSkillAssociation_tblSkill" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblProjectMemberAssociation_tblProject" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblProjectMemberTimeAssociation_tblProject" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblSprintMemberAssociation_tblProjectSprint" />
+        <EntityTypeShape EntityType="TimeManagementModel.tblSprintMemberTimeAssociation" Width="1.5" PointX="9.75" PointY="13.875" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblSprintMemberTimeAssociation_tblMember" />
+        <AssociationConnector Association="TimeManagementModel.FK_tblSprintMemberTimeAssociation_tblProjectSprint" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

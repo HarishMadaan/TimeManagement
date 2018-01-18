@@ -1,0 +1,1078 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TimeManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblApplicationUser">
+          <Key>
+            <PropertyRef Name="ApplicationUserId" />
+          </Key>
+          <Property Name="ApplicationUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserIdentityKey" Type="int" />
+          <Property Name="UserTypeId" Type="int" />
+          <Property Name="FName" Type="nvarchar(max)" />
+          <Property Name="LName" Type="nvarchar(max)" />
+          <Property Name="MemberCode" Type="nvarchar(max)" />
+          <Property Name="EmailId" Type="nvarchar(max)" />
+          <Property Name="MobileNo" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblMember">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserTypeId" Type="int" />
+          <Property Name="FName" Type="nvarchar(max)" />
+          <Property Name="LName" Type="nvarchar(max)" />
+          <Property Name="MemberCode" Type="nvarchar(max)" />
+          <Property Name="EmailId" Type="nvarchar(max)" />
+          <Property Name="MobileNo" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="nvarchar(max)" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="FatherName" Type="nvarchar(max)" />
+          <Property Name="MotherName" Type="nvarchar(max)" />
+          <Property Name="Designation" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblMemberSkillAssociation">
+          <Key>
+            <PropertyRef Name="SkillAssociationId" />
+          </Key>
+          <Property Name="SkillAssociationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberId" Type="int" />
+          <Property Name="SkillId" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblProject">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Documents" Type="nvarchar(max)" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="AlliasName" Type="nvarchar(max)" />
+          <Property Name="ProjectType" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblProjectMemberAssociation">
+          <Key>
+            <PropertyRef Name="ProjectMemberAssociationId" />
+          </Key>
+          <Property Name="ProjectMemberAssociationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="MemberId" Type="int" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblProjectMemberTimeAssociation">
+          <Key>
+            <PropertyRef Name="TimeId" />
+          </Key>
+          <Property Name="TimeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberId" Type="int" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="TimeSpend" Type="time" Precision="7" />
+          <Property Name="DDate" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tblProjectSprint">
+          <Key>
+            <PropertyRef Name="SprintId" />
+          </Key>
+          <Property Name="SprintId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="SprintNo" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblSkill">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblSprintMemberAssociation">
+          <Key>
+            <PropertyRef Name="SprintMemberAssociationId" />
+          </Key>
+          <Property Name="SprintMemberAssociationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SprintId" Type="int" />
+          <Property Name="MemberId" Type="int" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblSprintMemberTimeAssociation">
+          <Key>
+            <PropertyRef Name="TimeId" />
+          </Key>
+          <Property Name="TimeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberId" Type="int" />
+          <Property Name="SprintId" Type="int" />
+          <Property Name="TimeSpend" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DDate" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tblUserTypeMaster">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <Association Name="FK_tblApplicationUser_tblMember">
+          <End Role="tblMember" Type="Self.tblMember" Multiplicity="0..1" />
+          <End Role="tblApplicationUser" Type="Self.tblApplicationUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblApplicationUser">
+              <PropertyRef Name="UserIdentityKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblApplicationUser_tblUserTypeMaster">
+          <End Role="tblUserTypeMaster" Type="Self.tblUserTypeMaster" Multiplicity="0..1" />
+          <End Role="tblApplicationUser" Type="Self.tblApplicationUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserTypeMaster">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="tblApplicationUser">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMember_tblUserTypeMaster">
+          <End Role="tblUserTypeMaster" Type="Self.tblUserTypeMaster" Multiplicity="0..1" />
+          <End Role="tblMember" Type="Self.tblMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserTypeMaster">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="tblMember">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMemberSkillAssociation_tblMember">
+          <End Role="tblMember" Type="Self.tblMember" Multiplicity="0..1" />
+          <End Role="tblMemberSkillAssociation" Type="Self.tblMemberSkillAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblMemberSkillAssociation">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMemberSkillAssociation_tblSkill">
+          <End Role="tblSkill" Type="Self.tblSkill" Multiplicity="0..1" />
+          <End Role="tblMemberSkillAssociation" Type="Self.tblMemberSkillAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSkill">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="tblMemberSkillAssociation">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectMemberAssociation_tblMember">
+          <End Role="tblMember" Type="Self.tblMember" Multiplicity="0..1" />
+          <End Role="tblProjectMemberAssociation" Type="Self.tblProjectMemberAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblProjectMemberAssociation">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectMemberAssociation_tblProject">
+          <End Role="tblProject" Type="Self.tblProject" Multiplicity="0..1" />
+          <End Role="tblProjectMemberAssociation" Type="Self.tblProjectMemberAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProject">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="tblProjectMemberAssociation">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectMemberTimeAssociation_tblMember">
+          <End Role="tblMember" Type="Self.tblMember" Multiplicity="0..1" />
+          <End Role="tblProjectMemberTimeAssociation" Type="Self.tblProjectMemberTimeAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblProjectMemberTimeAssociation">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectMemberTimeAssociation_tblProject">
+          <End Role="tblProject" Type="Self.tblProject" Multiplicity="0..1" />
+          <End Role="tblProjectMemberTimeAssociation" Type="Self.tblProjectMemberTimeAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProject">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="tblProjectMemberTimeAssociation">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSprintMemberAssociation_tblMember">
+          <End Role="tblMember" Type="Self.tblMember" Multiplicity="0..1" />
+          <End Role="tblSprintMemberAssociation" Type="Self.tblSprintMemberAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblSprintMemberAssociation">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSprintMemberAssociation_tblProjectSprint">
+          <End Role="tblProjectSprint" Type="Self.tblProjectSprint" Multiplicity="0..1" />
+          <End Role="tblSprintMemberAssociation" Type="Self.tblSprintMemberAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjectSprint">
+              <PropertyRef Name="SprintId" />
+            </Principal>
+            <Dependent Role="tblSprintMemberAssociation">
+              <PropertyRef Name="SprintId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSprintMemberTimeAssociation_tblMember">
+          <End Role="tblMember" Type="Self.tblMember" Multiplicity="0..1" />
+          <End Role="tblSprintMemberTimeAssociation" Type="Self.tblSprintMemberTimeAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblSprintMemberTimeAssociation">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSprintMemberTimeAssociation_tblProjectSprint">
+          <End Role="tblProjectSprint" Type="Self.tblProjectSprint" Multiplicity="0..1" />
+          <End Role="tblSprintMemberTimeAssociation" Type="Self.tblSprintMemberTimeAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjectSprint">
+              <PropertyRef Name="SprintId" />
+            </Principal>
+            <Dependent Role="tblSprintMemberTimeAssociation">
+              <PropertyRef Name="SprintId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TimeManagementModelStoreContainer">
+          <EntitySet Name="tblApplicationUser" EntityType="Self.tblApplicationUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMember" EntityType="Self.tblMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMemberSkillAssociation" EntityType="Self.tblMemberSkillAssociation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProject" EntityType="Self.tblProject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProjectMemberAssociation" EntityType="Self.tblProjectMemberAssociation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProjectMemberTimeAssociation" EntityType="Self.tblProjectMemberTimeAssociation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProjectSprint" EntityType="Self.tblProjectSprint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSkill" EntityType="Self.tblSkill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSprintMemberAssociation" EntityType="Self.tblSprintMemberAssociation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSprintMemberTimeAssociation" EntityType="Self.tblSprintMemberTimeAssociation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserTypeMaster" EntityType="Self.tblUserTypeMaster" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblApplicationUser_tblMember" Association="Self.FK_tblApplicationUser_tblMember">
+            <End Role="tblMember" EntitySet="tblMember" />
+            <End Role="tblApplicationUser" EntitySet="tblApplicationUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblApplicationUser_tblUserTypeMaster" Association="Self.FK_tblApplicationUser_tblUserTypeMaster">
+            <End Role="tblUserTypeMaster" EntitySet="tblUserTypeMaster" />
+            <End Role="tblApplicationUser" EntitySet="tblApplicationUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMember_tblUserTypeMaster" Association="Self.FK_tblMember_tblUserTypeMaster">
+            <End Role="tblUserTypeMaster" EntitySet="tblUserTypeMaster" />
+            <End Role="tblMember" EntitySet="tblMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMemberSkillAssociation_tblMember" Association="Self.FK_tblMemberSkillAssociation_tblMember">
+            <End Role="tblMember" EntitySet="tblMember" />
+            <End Role="tblMemberSkillAssociation" EntitySet="tblMemberSkillAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMemberSkillAssociation_tblSkill" Association="Self.FK_tblMemberSkillAssociation_tblSkill">
+            <End Role="tblSkill" EntitySet="tblSkill" />
+            <End Role="tblMemberSkillAssociation" EntitySet="tblMemberSkillAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectMemberAssociation_tblMember" Association="Self.FK_tblProjectMemberAssociation_tblMember">
+            <End Role="tblMember" EntitySet="tblMember" />
+            <End Role="tblProjectMemberAssociation" EntitySet="tblProjectMemberAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectMemberAssociation_tblProject" Association="Self.FK_tblProjectMemberAssociation_tblProject">
+            <End Role="tblProject" EntitySet="tblProject" />
+            <End Role="tblProjectMemberAssociation" EntitySet="tblProjectMemberAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectMemberTimeAssociation_tblMember" Association="Self.FK_tblProjectMemberTimeAssociation_tblMember">
+            <End Role="tblMember" EntitySet="tblMember" />
+            <End Role="tblProjectMemberTimeAssociation" EntitySet="tblProjectMemberTimeAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectMemberTimeAssociation_tblProject" Association="Self.FK_tblProjectMemberTimeAssociation_tblProject">
+            <End Role="tblProject" EntitySet="tblProject" />
+            <End Role="tblProjectMemberTimeAssociation" EntitySet="tblProjectMemberTimeAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSprintMemberAssociation_tblMember" Association="Self.FK_tblSprintMemberAssociation_tblMember">
+            <End Role="tblMember" EntitySet="tblMember" />
+            <End Role="tblSprintMemberAssociation" EntitySet="tblSprintMemberAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSprintMemberAssociation_tblProjectSprint" Association="Self.FK_tblSprintMemberAssociation_tblProjectSprint">
+            <End Role="tblProjectSprint" EntitySet="tblProjectSprint" />
+            <End Role="tblSprintMemberAssociation" EntitySet="tblSprintMemberAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSprintMemberTimeAssociation_tblMember" Association="Self.FK_tblSprintMemberTimeAssociation_tblMember">
+            <End Role="tblMember" EntitySet="tblMember" />
+            <End Role="tblSprintMemberTimeAssociation" EntitySet="tblSprintMemberTimeAssociation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSprintMemberTimeAssociation_tblProjectSprint" Association="Self.FK_tblSprintMemberTimeAssociation_tblProjectSprint">
+            <End Role="tblProjectSprint" EntitySet="tblProjectSprint" />
+            <End Role="tblSprintMemberTimeAssociation" EntitySet="tblSprintMemberTimeAssociation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TimeManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TimeManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblApplicationUsers" EntityType="TimeManagementModel.tblApplicationUser" />
+          <EntitySet Name="tblMembers" EntityType="TimeManagementModel.tblMember" />
+          <EntitySet Name="tblMemberSkillAssociations" EntityType="TimeManagementModel.tblMemberSkillAssociation" />
+          <EntitySet Name="tblProjects" EntityType="TimeManagementModel.tblProject" />
+          <EntitySet Name="tblProjectMemberAssociations" EntityType="TimeManagementModel.tblProjectMemberAssociation" />
+          <EntitySet Name="tblProjectMemberTimeAssociations" EntityType="TimeManagementModel.tblProjectMemberTimeAssociation" />
+          <EntitySet Name="tblProjectSprints" EntityType="TimeManagementModel.tblProjectSprint" />
+          <EntitySet Name="tblSkills" EntityType="TimeManagementModel.tblSkill" />
+          <EntitySet Name="tblSprintMemberAssociations" EntityType="TimeManagementModel.tblSprintMemberAssociation" />
+          <EntitySet Name="tblUserTypeMasters" EntityType="TimeManagementModel.tblUserTypeMaster" />
+          <AssociationSet Name="FK_tblApplicationUser_tblMember" Association="TimeManagementModel.FK_tblApplicationUser_tblMember">
+            <End Role="tblMember" EntitySet="tblMembers" />
+            <End Role="tblApplicationUser" EntitySet="tblApplicationUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblApplicationUser_tblUserTypeMaster" Association="TimeManagementModel.FK_tblApplicationUser_tblUserTypeMaster">
+            <End Role="tblUserTypeMaster" EntitySet="tblUserTypeMasters" />
+            <End Role="tblApplicationUser" EntitySet="tblApplicationUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMember_tblUserTypeMaster" Association="TimeManagementModel.FK_tblMember_tblUserTypeMaster">
+            <End Role="tblUserTypeMaster" EntitySet="tblUserTypeMasters" />
+            <End Role="tblMember" EntitySet="tblMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMemberSkillAssociation_tblMember" Association="TimeManagementModel.FK_tblMemberSkillAssociation_tblMember">
+            <End Role="tblMember" EntitySet="tblMembers" />
+            <End Role="tblMemberSkillAssociation" EntitySet="tblMemberSkillAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectMemberAssociation_tblMember" Association="TimeManagementModel.FK_tblProjectMemberAssociation_tblMember">
+            <End Role="tblMember" EntitySet="tblMembers" />
+            <End Role="tblProjectMemberAssociation" EntitySet="tblProjectMemberAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectMemberTimeAssociation_tblMember" Association="TimeManagementModel.FK_tblProjectMemberTimeAssociation_tblMember">
+            <End Role="tblMember" EntitySet="tblMembers" />
+            <End Role="tblProjectMemberTimeAssociation" EntitySet="tblProjectMemberTimeAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSprintMemberAssociation_tblMember" Association="TimeManagementModel.FK_tblSprintMemberAssociation_tblMember">
+            <End Role="tblMember" EntitySet="tblMembers" />
+            <End Role="tblSprintMemberAssociation" EntitySet="tblSprintMemberAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMemberSkillAssociation_tblSkill" Association="TimeManagementModel.FK_tblMemberSkillAssociation_tblSkill">
+            <End Role="tblSkill" EntitySet="tblSkills" />
+            <End Role="tblMemberSkillAssociation" EntitySet="tblMemberSkillAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectMemberAssociation_tblProject" Association="TimeManagementModel.FK_tblProjectMemberAssociation_tblProject">
+            <End Role="tblProject" EntitySet="tblProjects" />
+            <End Role="tblProjectMemberAssociation" EntitySet="tblProjectMemberAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblProjectMemberTimeAssociation_tblProject" Association="TimeManagementModel.FK_tblProjectMemberTimeAssociation_tblProject">
+            <End Role="tblProject" EntitySet="tblProjects" />
+            <End Role="tblProjectMemberTimeAssociation" EntitySet="tblProjectMemberTimeAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSprintMemberAssociation_tblProjectSprint" Association="TimeManagementModel.FK_tblSprintMemberAssociation_tblProjectSprint">
+            <End Role="tblProjectSprint" EntitySet="tblProjectSprints" />
+            <End Role="tblSprintMemberAssociation" EntitySet="tblSprintMemberAssociations" />
+          </AssociationSet>
+          <EntitySet Name="tblSprintMemberTimeAssociations" EntityType="TimeManagementModel.tblSprintMemberTimeAssociation" />
+          <AssociationSet Name="FK_tblSprintMemberTimeAssociation_tblMember" Association="TimeManagementModel.FK_tblSprintMemberTimeAssociation_tblMember">
+            <End Role="tblMember" EntitySet="tblMembers" />
+            <End Role="tblSprintMemberTimeAssociation" EntitySet="tblSprintMemberTimeAssociations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSprintMemberTimeAssociation_tblProjectSprint" Association="TimeManagementModel.FK_tblSprintMemberTimeAssociation_tblProjectSprint">
+            <End Role="tblProjectSprint" EntitySet="tblProjectSprints" />
+            <End Role="tblSprintMemberTimeAssociation" EntitySet="tblSprintMemberTimeAssociations" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="tblApplicationUser">
+          <Key>
+            <PropertyRef Name="ApplicationUserId" />
+          </Key>
+          <Property Name="ApplicationUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserIdentityKey" Type="Int32" />
+          <Property Name="UserTypeId" Type="Int32" />
+          <Property Name="FName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MemberCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="tblMember" Relationship="TimeManagementModel.FK_tblApplicationUser_tblMember" FromRole="tblApplicationUser" ToRole="tblMember" />
+          <NavigationProperty Name="tblUserTypeMaster" Relationship="TimeManagementModel.FK_tblApplicationUser_tblUserTypeMaster" FromRole="tblApplicationUser" ToRole="tblUserTypeMaster" />
+        </EntityType>
+        <EntityType Name="tblMember">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserTypeId" Type="Int32" />
+          <Property Name="FName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MemberCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MotherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="tblApplicationUsers" Relationship="TimeManagementModel.FK_tblApplicationUser_tblMember" FromRole="tblMember" ToRole="tblApplicationUser" />
+          <NavigationProperty Name="tblUserTypeMaster" Relationship="TimeManagementModel.FK_tblMember_tblUserTypeMaster" FromRole="tblMember" ToRole="tblUserTypeMaster" />
+          <NavigationProperty Name="tblMemberSkillAssociations" Relationship="TimeManagementModel.FK_tblMemberSkillAssociation_tblMember" FromRole="tblMember" ToRole="tblMemberSkillAssociation" />
+          <NavigationProperty Name="tblProjectMemberAssociations" Relationship="TimeManagementModel.FK_tblProjectMemberAssociation_tblMember" FromRole="tblMember" ToRole="tblProjectMemberAssociation" />
+          <NavigationProperty Name="tblProjectMemberTimeAssociations" Relationship="TimeManagementModel.FK_tblProjectMemberTimeAssociation_tblMember" FromRole="tblMember" ToRole="tblProjectMemberTimeAssociation" />
+          <NavigationProperty Name="tblSprintMemberAssociations" Relationship="TimeManagementModel.FK_tblSprintMemberAssociation_tblMember" FromRole="tblMember" ToRole="tblSprintMemberAssociation" />
+          <NavigationProperty Name="tblSprintMemberTimeAssociations" Relationship="TimeManagementModel.FK_tblSprintMemberTimeAssociation_tblMember" FromRole="tblMember" ToRole="tblSprintMemberTimeAssociation" />
+        </EntityType>
+        <EntityType Name="tblMemberSkillAssociation">
+          <Key>
+            <PropertyRef Name="SkillAssociationId" />
+          </Key>
+          <Property Name="SkillAssociationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberId" Type="Int32" />
+          <Property Name="SkillId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="tblMember" Relationship="TimeManagementModel.FK_tblMemberSkillAssociation_tblMember" FromRole="tblMemberSkillAssociation" ToRole="tblMember" />
+          <NavigationProperty Name="tblSkill" Relationship="TimeManagementModel.FK_tblMemberSkillAssociation_tblSkill" FromRole="tblMemberSkillAssociation" ToRole="tblSkill" />
+        </EntityType>
+        <EntityType Name="tblProject">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Documents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="AlliasName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="tblProjectMemberAssociations" Relationship="TimeManagementModel.FK_tblProjectMemberAssociation_tblProject" FromRole="tblProject" ToRole="tblProjectMemberAssociation" />
+          <NavigationProperty Name="tblProjectMemberTimeAssociations" Relationship="TimeManagementModel.FK_tblProjectMemberTimeAssociation_tblProject" FromRole="tblProject" ToRole="tblProjectMemberTimeAssociation" />
+        </EntityType>
+        <EntityType Name="tblProjectMemberAssociation">
+          <Key>
+            <PropertyRef Name="ProjectMemberAssociationId" />
+          </Key>
+          <Property Name="ProjectMemberAssociationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="MemberId" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="tblMember" Relationship="TimeManagementModel.FK_tblProjectMemberAssociation_tblMember" FromRole="tblProjectMemberAssociation" ToRole="tblMember" />
+          <NavigationProperty Name="tblProject" Relationship="TimeManagementModel.FK_tblProjectMemberAssociation_tblProject" FromRole="tblProjectMemberAssociation" ToRole="tblProject" />
+        </EntityType>
+        <EntityType Name="tblProjectMemberTimeAssociation">
+          <Key>
+            <PropertyRef Name="TimeId" />
+          </Key>
+          <Property Name="TimeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberId" Type="Int32" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="TimeSpend" Type="Time" Precision="7" />
+          <Property Name="DDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <NavigationProperty Name="tblMember" Relationship="TimeManagementModel.FK_tblProjectMemberTimeAssociation_tblMember" FromRole="tblProjectMemberTimeAssociation" ToRole="tblMember" />
+          <NavigationProperty Name="tblProject" Relationship="TimeManagementModel.FK_tblProjectMemberTimeAssociation_tblProject" FromRole="tblProjectMemberTimeAssociation" ToRole="tblProject" />
+        </EntityType>
+        <EntityType Name="tblProjectSprint">
+          <Key>
+            <PropertyRef Name="SprintId" />
+          </Key>
+          <Property Name="SprintId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="SprintNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="tblSprintMemberAssociations" Relationship="TimeManagementModel.FK_tblSprintMemberAssociation_tblProjectSprint" FromRole="tblProjectSprint" ToRole="tblSprintMemberAssociation" />
+          <NavigationProperty Name="tblSprintMemberTimeAssociations" Relationship="TimeManagementModel.FK_tblSprintMemberTimeAssociation_tblProjectSprint" FromRole="tblProjectSprint" ToRole="tblSprintMemberTimeAssociation" />
+        </EntityType>
+        <EntityType Name="tblSkill">
+          <Key>
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="SkillId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="tblMemberSkillAssociations" Relationship="TimeManagementModel.FK_tblMemberSkillAssociation_tblSkill" FromRole="tblSkill" ToRole="tblMemberSkillAssociation" />
+        </EntityType>
+        <EntityType Name="tblSprintMemberAssociation">
+          <Key>
+            <PropertyRef Name="SprintMemberAssociationId" />
+          </Key>
+          <Property Name="SprintMemberAssociationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SprintId" Type="Int32" />
+          <Property Name="MemberId" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <NavigationProperty Name="tblMember" Relationship="TimeManagementModel.FK_tblSprintMemberAssociation_tblMember" FromRole="tblSprintMemberAssociation" ToRole="tblMember" />
+          <NavigationProperty Name="tblProjectSprint" Relationship="TimeManagementModel.FK_tblSprintMemberAssociation_tblProjectSprint" FromRole="tblSprintMemberAssociation" ToRole="tblProjectSprint" />
+        </EntityType>
+        <EntityType Name="tblUserTypeMaster">
+          <Key>
+            <PropertyRef Name="UserTypeId" />
+          </Key>
+          <Property Name="UserTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="tblApplicationUsers" Relationship="TimeManagementModel.FK_tblApplicationUser_tblUserTypeMaster" FromRole="tblUserTypeMaster" ToRole="tblApplicationUser" />
+          <NavigationProperty Name="tblMembers" Relationship="TimeManagementModel.FK_tblMember_tblUserTypeMaster" FromRole="tblUserTypeMaster" ToRole="tblMember" />
+        </EntityType>
+        <Association Name="FK_tblApplicationUser_tblMember">
+          <End Type="TimeManagementModel.tblMember" Role="tblMember" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblApplicationUser" Role="tblApplicationUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblApplicationUser">
+              <PropertyRef Name="UserIdentityKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblApplicationUser_tblUserTypeMaster">
+          <End Type="TimeManagementModel.tblUserTypeMaster" Role="tblUserTypeMaster" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblApplicationUser" Role="tblApplicationUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserTypeMaster">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="tblApplicationUser">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMember_tblUserTypeMaster">
+          <End Type="TimeManagementModel.tblUserTypeMaster" Role="tblUserTypeMaster" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblMember" Role="tblMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserTypeMaster">
+              <PropertyRef Name="UserTypeId" />
+            </Principal>
+            <Dependent Role="tblMember">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMemberSkillAssociation_tblMember">
+          <End Type="TimeManagementModel.tblMember" Role="tblMember" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblMemberSkillAssociation" Role="tblMemberSkillAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblMemberSkillAssociation">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectMemberAssociation_tblMember">
+          <End Type="TimeManagementModel.tblMember" Role="tblMember" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblProjectMemberAssociation" Role="tblProjectMemberAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblProjectMemberAssociation">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectMemberTimeAssociation_tblMember">
+          <End Type="TimeManagementModel.tblMember" Role="tblMember" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblProjectMemberTimeAssociation" Role="tblProjectMemberTimeAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblProjectMemberTimeAssociation">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSprintMemberAssociation_tblMember">
+          <End Type="TimeManagementModel.tblMember" Role="tblMember" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblSprintMemberAssociation" Role="tblSprintMemberAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblSprintMemberAssociation">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMemberSkillAssociation_tblSkill">
+          <End Type="TimeManagementModel.tblSkill" Role="tblSkill" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblMemberSkillAssociation" Role="tblMemberSkillAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSkill">
+              <PropertyRef Name="SkillId" />
+            </Principal>
+            <Dependent Role="tblMemberSkillAssociation">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectMemberAssociation_tblProject">
+          <End Type="TimeManagementModel.tblProject" Role="tblProject" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblProjectMemberAssociation" Role="tblProjectMemberAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProject">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="tblProjectMemberAssociation">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblProjectMemberTimeAssociation_tblProject">
+          <End Type="TimeManagementModel.tblProject" Role="tblProject" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblProjectMemberTimeAssociation" Role="tblProjectMemberTimeAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProject">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="tblProjectMemberTimeAssociation">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSprintMemberAssociation_tblProjectSprint">
+          <End Type="TimeManagementModel.tblProjectSprint" Role="tblProjectSprint" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblSprintMemberAssociation" Role="tblSprintMemberAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjectSprint">
+              <PropertyRef Name="SprintId" />
+            </Principal>
+            <Dependent Role="tblSprintMemberAssociation">
+              <PropertyRef Name="SprintId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblSprintMemberTimeAssociation">
+          <Key>
+            <PropertyRef Name="TimeId" />
+          </Key>
+          <Property Name="TimeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberId" Type="Int32" />
+          <Property Name="SprintId" Type="Int32" />
+          <Property Name="TimeSpend" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <NavigationProperty Name="tblMember" Relationship="TimeManagementModel.FK_tblSprintMemberTimeAssociation_tblMember" FromRole="tblSprintMemberTimeAssociation" ToRole="tblMember" />
+          <NavigationProperty Name="tblProjectSprint" Relationship="TimeManagementModel.FK_tblSprintMemberTimeAssociation_tblProjectSprint" FromRole="tblSprintMemberTimeAssociation" ToRole="tblProjectSprint" />
+        </EntityType>
+        <Association Name="FK_tblSprintMemberTimeAssociation_tblMember">
+          <End Type="TimeManagementModel.tblMember" Role="tblMember" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblSprintMemberTimeAssociation" Role="tblSprintMemberTimeAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMember">
+              <PropertyRef Name="MemberId" />
+            </Principal>
+            <Dependent Role="tblSprintMemberTimeAssociation">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSprintMemberTimeAssociation_tblProjectSprint">
+          <End Type="TimeManagementModel.tblProjectSprint" Role="tblProjectSprint" Multiplicity="0..1" />
+          <End Type="TimeManagementModel.tblSprintMemberTimeAssociation" Role="tblSprintMemberTimeAssociation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblProjectSprint">
+              <PropertyRef Name="SprintId" />
+            </Principal>
+            <Dependent Role="tblSprintMemberTimeAssociation">
+              <PropertyRef Name="SprintId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TimeManagementModelStoreContainer" CdmEntityContainer="TimeManagementEntities">
+          <EntitySetMapping Name="tblApplicationUsers">
+            <EntityTypeMapping TypeName="TimeManagementModel.tblApplicationUser">
+              <MappingFragment StoreEntitySet="tblApplicationUser">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="MemberCode" ColumnName="MemberCode" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="UserIdentityKey" ColumnName="UserIdentityKey" />
+                <ScalarProperty Name="ApplicationUserId" ColumnName="ApplicationUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMembers">
+            <EntityTypeMapping TypeName="TimeManagementModel.tblMember">
+              <MappingFragment StoreEntitySet="tblMember">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="MemberCode" ColumnName="MemberCode" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMemberSkillAssociations">
+            <EntityTypeMapping TypeName="TimeManagementModel.tblMemberSkillAssociation">
+              <MappingFragment StoreEntitySet="tblMemberSkillAssociation">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="SkillAssociationId" ColumnName="SkillAssociationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjects">
+            <EntityTypeMapping TypeName="TimeManagementModel.tblProject">
+              <MappingFragment StoreEntitySet="tblProject">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+                <ScalarProperty Name="AlliasName" ColumnName="AlliasName" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Documents" ColumnName="Documents" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjectMemberAssociations">
+            <EntityTypeMapping TypeName="TimeManagementModel.tblProjectMemberAssociation">
+              <MappingFragment StoreEntitySet="tblProjectMemberAssociation">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ProjectMemberAssociationId" ColumnName="ProjectMemberAssociationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjectMemberTimeAssociations">
+            <EntityTypeMapping TypeName="TimeManagementModel.tblProjectMemberTimeAssociation">
+              <MappingFragment StoreEntitySet="tblProjectMemberTimeAssociation">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DDate" ColumnName="DDate" />
+                <ScalarProperty Name="TimeSpend" ColumnName="TimeSpend" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="TimeId" ColumnName="TimeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProjectSprints">
+            <EntityTypeMapping TypeName="TimeManagementModel.tblProjectSprint">
+              <MappingFragment StoreEntitySet="tblProjectSprint">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="SprintNo" ColumnName="SprintNo" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="SprintId" ColumnName="SprintId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSkills">
+            <EntityTypeMapping TypeName="TimeManagementModel.tblSkill">
+              <MappingFragment StoreEntitySet="tblSkill">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSprintMemberAssociations">
+            <EntityTypeMapping TypeName="TimeManagementModel.tblSprintMemberAssociation">
+              <MappingFragment StoreEntitySet="tblSprintMemberAssociation">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="SprintId" ColumnName="SprintId" />
+                <ScalarProperty Name="SprintMemberAssociationId" ColumnName="SprintMemberAssociationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserTypeMasters">
+            <EntityTypeMapping TypeName="TimeManagementModel.tblUserTypeMaster">
+              <MappingFragment StoreEntitySet="tblUserTypeMaster">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSprintMemberTimeAssociations">
+            <EntityTypeMapping TypeName="TimeManagementModel.tblSprintMemberTimeAssociation">
+              <MappingFragment StoreEntitySet="tblSprintMemberTimeAssociation">
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DDate" ColumnName="DDate" />
+                <ScalarProperty Name="TimeSpend" ColumnName="TimeSpend" />
+                <ScalarProperty Name="SprintId" ColumnName="SprintId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="TimeId" ColumnName="TimeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
